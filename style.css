@@ -154,11 +154,18 @@ h1, h2, h3, h4, h5, h6 {
 .fade-in-element {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    will-change: opacity, transform;
 }
+
 .fade-in-element.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+.title {
+    opacity: 1 !important; /* Asegura que siempre sea visible */
+    transform: none !important;
 }
 .lord-icon-style {
     width: 350px;
@@ -254,6 +261,10 @@ h1, h2, h3, h4, h5, h6 {
 .contenedor-play .fa-play, .contenedor-play .fa-pause {
     font-size: 70px;
     cursor: pointer;
+}
+#playPauseButton {
+    touch-action: manipulation; /* Evita retrasos en dispositivos móviles */
+    will-change: transform, opacity; /* Optimiza animaciones */
 }
 .progress-container {
     width: 100%;

@@ -47,21 +47,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Función para reproducir/pausar la música y cambiar el icono
     function togglePlayPause() {
-        if (audio.paused) {
-            audio.play().then(function() {
-                iconoPlayPause.classList.remove("fa-play");
-                iconoPlayPause.classList.add("fa-pause");
-                updateProgress(); // Iniciar la actualización del progreso
-            }).catch(function(error) {
-                console.log('Playback failed: ', error);
-            });
-        } else {
-            audio.pause();
-            iconoPlayPause.classList.add("fa-play");
-            iconoPlayPause.classList.remove("fa-pause");
-        }
+        var audio = document.getElementById("audioPlayer");
+        var iconoPlayPause = document.getElementById("iconoPlayPause");
+    
+        if (!audio || !iconoPlayPause) return;
+    
+        // 1️⃣ CAMBIO INSTANTÁNEO DEL ICONO (Reduce INP)
+        requestAnimationFrame(() => {
+            iconoPlayPause.classList.toggle("fa-play");
+            iconoPlayPause.classList.toggle("fa-pause");
+        });
+    
+        // 2️⃣ CONTROL DE AUDIO (Se ejecuta en segundo plano)
+        setTimeout(() => {
+            if (audio.paused) {
+                audio.play().catch(console.error);
+            } else {
+                audio.pause();
+            }
+        }, 50);
     }
-
+    
     // Actualizar el progreso de la barra y el tiempo
     function updateProgress() {
         audio.addEventListener("timeupdate", function() {
@@ -271,3 +277,7 @@ function toggleDetails() {
         details.style.display = "none";
     }
 }
+//OPTIMIZACION DE CODIGO
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector(".title").classList.add("visible");
+});
