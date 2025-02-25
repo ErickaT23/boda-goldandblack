@@ -9,7 +9,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Nos Casamos Nathalie & Carlos">
     <meta property="og:image" content="https://images.pexels.com/photos/30891449/pexels-photo-30891449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
-    <link rel="preload" href="/style.css" as="style">
+    <link rel="stylesheet" href="/style.css">
     <link rel="preload" href="/images/envelope.png" as="image">
     <link rel="preload" href="/images/div-play.png" as="image">      
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,9 +22,9 @@
 <div class="main-content">
     <!-- Sección de sobre -->
     <div id="envelope">
-        <div id="envelope-top"></div>
-        <div id="seal" onclick="openEnvelopeAndPlayMusic()">
-            <h2 class="fade-in-element">N | C</h2>
+        <div id="envelope-top" loading="lazy"></div>
+        <div id="seal" onclick="openEnvelopeAndPlayMusic()" loading="lazy">
+            <h2 class="fade-in-element" loading="lazy">N | C</h2>
         </div>
         <div id="envelope-bottom"></div>
     </div>
@@ -278,7 +278,7 @@
     </div>
 </div>
     <script type="module" src="/database.js"></script>
+    <script src="/script.js"></script>
     <script src="/loads.js"></script>
-    <link rel="preload" href="script.js" as="script">
 </body>
 </html>
