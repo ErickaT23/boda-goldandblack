@@ -27,7 +27,7 @@ const guests = [
     { id: "25", name: "Sr. Bogar Maldonado y Sra.", passes: 4 },
     { id: "26", name: "Sr. Fernando Fernández y Sra.", passes: 2 },
     { id: "27", name: "Olga Sis", passes: 2 },
-    { id: "28", name: "Brenda Dávila", passes: 1 },
+    { id: "28", name: "Silvia sanjay", passes: 2 },
     { id: "29", name: "Mario Guzmán", passes: 2 },
     { id: "30", name: "Sr. Julio Estrada y Sra.", passes: 2 },
     { id: "31", name: "Sr. Ronald Chicas y Sra.", passes: 2 },
