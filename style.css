@@ -196,13 +196,13 @@ h1, h2, h3, h4, h5, h6 {
     color: transparent;
     font-size: 55px;
 }
-.dresscode-section, .wishes-section, .gallery-section, .playlist-section, .rsvp-section{
+.dresscode-section, .wishes-section, .gallery-section, .playlist-section, .rsvp-section, .nochild-section{
     background-color: white;
     padding: 20px 0 30px;
     margin: 0;
     text-align: center;
 }
-.story-section h2, .itinerary-item h2, .dresscode-section h2, .filter-section h2, .wishes-section h2, .gallery-section h2, .playlist-section h2, .rsvp-section h2{
+.story-section h2, .itinerary-item h2, .dresscode-section h2, .filter-section h2, .wishes-section h2, .gallery-section h2, .playlist-section h2, .rsvp-section h2, .nochild-section h2{
     font-size: 110px;
     margin-bottom: 50px;
     text-transform: initial;
@@ -226,7 +226,7 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 2; /* Asegura que esté sobre cualquier contenido debajo */
     padding: 20px; /* Ajusta el espacio interior si es necesario */
     box-sizing: border-box; /* Incluye el padding en el tamaño total */
-    margin-top: -150px;
+    margin-top: -30px;
     margin-bottom: -100px;
     border-radius: 10px;
 }
@@ -343,7 +343,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 8px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
-.dresscode-section p, .playlist-section p, .rsvp-section p{
+.dresscode-section p, .playlist-section p, .rsvp-section p, .nochild-section p{
     margin: 10px 0;
     font-size: 80px;
     color: black;
@@ -445,6 +445,10 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: center;
     gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
 }
 .gallery-thumbs img {
     width: 300px;
@@ -543,6 +547,10 @@ footer .logo img {
     font-size: 35px;
     margin-top: 10px;
 }
+.details img{
+    width: 100%;
+    height: auto;
+}
 @media (max-width: 768px) {
     .main-content {
         padding: 0;
@@ -599,11 +607,11 @@ footer .logo img {
     .quote-section{
         padding: 25px 5px;
     }
-    .quote-section p, .guest-section p, .invitation-info-section p, .special-day-section p .dresscode-section p, .gifts-section p, .filter-section p, .rsvp-section p, .playlist-section p, .dresscode-section p{
+    .quote-section p, .guest-section p, .invitation-info-section p, .special-day-section p .dresscode-section p, .gifts-section p, .filter-section p, .rsvp-section p, .playlist-section p, .dresscode-section p, .nochild-section p{
         font-size: 22px;
         padding: 10px;
     }
-    .story-section h2, .gifts-section h2, .dresscode-section h2, .filter-section h2, .rsvp-section h2, .wishes-section h2, .playlist-section h2, .gallery-section h2{
+    .story-section h2, .gifts-section h2, .dresscode-section h2, .filter-section h2, .rsvp-section h2, .wishes-section h2, .playlist-section h2, .gallery-section h2, .nochild-section h2{
         font-size: 45px;
         margin-bottom: 10px;
         text-transform: initial;
@@ -688,6 +696,10 @@ footer .logo img {
         font-size: 28px;
         margin: 0 0 0 0;
         padding: 5px;
+    }
+    .details img{
+        width: 100%;
+        height: auto;
     }
 }
 @media (min-width: 768px) and (max-width: 1900px) {
