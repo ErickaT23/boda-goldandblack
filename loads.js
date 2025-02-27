@@ -83,6 +83,8 @@ const guests = [
     { id: "81", name: "Cesar Chiquín", passes: 1 },
     { id: "82", name: "Cristina Córdoba", passes: 1 },
     { id: "83", name: "Salem Meléndez", passes: 1 },
+    { id: "84", name: "Eres muy especial para nosotros", passes: 1 },
+    { id: "85", name: "Son muy especiales para nosotros", passes: 2 },
 ];
 
 document.addEventListener("DOMContentLoaded", function() {
