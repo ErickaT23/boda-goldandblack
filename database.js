@@ -1,4 +1,3 @@
-//FIREBASE//
 // Importar Firebase y Realtime Database
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
 import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-database.js";
@@ -29,13 +28,15 @@ window.submitWish = function () {
     push(ref(db, "buenos-deseos/"), {
       nombre: name,
       mensaje: message
+    }).then(() => {
+      alert("¡Tu buen deseo ha sido enviado! 🌟");
+    }).catch((error) => {
+      console.error("Error al enviar el deseo: ", error);
     });
 
     // Limpiar el formulario después de enviar
     document.getElementById("wish-name").value = "";
     document.getElementById("wish-message").value = "";
-
-    alert("¡Tu buen deseo ha sido enviado! 🌟");
   } else {
     alert("Por favor, completa ambos campos antes de enviar.");
   }
@@ -54,12 +55,20 @@ window.toggleWishes = function () {
   // Mostrar deseos en tiempo real
   onValue(ref(db, "buenos-deseos/"), (snapshot) => {
     wishesDiv.innerHTML = ""; // Limpiar antes de actualizar
-    snapshot.forEach((childSnapshot) => {
-      const wish = childSnapshot.val();
-      const wishElement = document.createElement("p");
-      wishElement.innerHTML = `<strong>${wish.nombre}:</strong> ${wish.mensaje}`;
-      wishesDiv.appendChild(wishElement);
-    });
+
+    // Verifica si snapshot tiene datos
+    if (snapshot.exists()) {
+      snapshot.forEach((childSnapshot) => {
+        const wish = childSnapshot.val();
+        const wishElement = document.createElement("p");
+        wishElement.innerHTML = `<strong>${wish.nombre}:</strong> ${wish.mensaje}`;
+        wishesDiv.appendChild(wishElement);
+      });
+    } else {
+      const noWishesMessage = document.createElement("p");
+      noWishesMessage.textContent = "No hay deseos aún.";
+      wishesDiv.appendChild(noWishesMessage);
+    }
 
     wishesDiv.classList.remove("hidden"); // Mostrar la sección
   });
